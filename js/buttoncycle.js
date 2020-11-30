@@ -1,21 +1,3 @@
-const buttons = [
-  'numbers',
-  'mousetrap',
-  'colors',
-  'thanksgiving food'
-]
-
-function buttonCycle() {
-  var randomButton = buttons[Math.round(Math.random() * (buttons.length-1))]
-  var buttonTwo = document.getElementById('buttonTwo')
-  buttonTwo.innerHTML = randomButton
-}
-
-if (buttonTwo.innerHTML = 'numbers') {
-  
-}
-
-
 const numbers = [
   '0',
   '1',
@@ -69,26 +51,67 @@ const thanksgivingFood = [
   'pecan pie',
 ]
 
-function pickNumber() {
+const pickNumber = () => {
   var randomNumber = numbers[Math.round(Math.random() * (numbers.length-1))]
   var mainDiv = document.getElementById('mainDiv')
   mainDiv.innerHTML = randomNumber
 }
 
-function pickThing() {
+const pickThing = () => {
   var randomThing = listMousetrap[Math.round(Math.random() * (listMousetrap.length-1))]
   var mainDiv = document.getElementById('mainDiv')
   mainDiv.innerHTML = randomThing
 }
 
-function pickColor() {
+const pickColor = () => {
   var randomColor = colors[Math.round(Math.random() * (colors.length-1))]
   var mainDiv = document.getElementById('mainDiv')
   mainDiv.innerHTML = randomColor
 }
 
-function pickFood() {
+const pickFood = () => {
   var randomFood = thanksgivingFood[Math.round(Math.random() * (thanksgivingFood.length-1))]
   var mainDiv = document.getElementById('mainDiv')
   mainDiv.innerHTML = randomFood
+}
+
+const buttonTexts = [
+  'numbers',
+  'mousetrap',
+  'colors',
+  'thanksgiving food'
+]
+
+// randomly assigns buttonTwo display text and sets onclick attribute based on that text
+function buttonCycle() {
+  var randomText = buttonTexts[Math.round(Math.random() * (buttonTexts.length-1))]
+  var buttonTwo = document.getElementById('buttonTwo')
+  buttonTwo.innerHTML = randomText
+
+  if (buttonTwo.innerHTML === 'numbers') {
+    buttonTwo.onclick = pickNumber
+  } else if (buttonTwo.innerHTML === 'mousetrap') {
+    buttonTwo.onclick = pickThing
+  } else if (buttonTwo.innerHTML === 'colors') {
+    buttonTwo.onclick = pickColor
+  } else if (buttonTwo.innerHTML === 'thanksgiving food') {
+    buttonTwo.onclick = pickFood
+  }
+
+  // switch (buttonTwo.innerHTML) {
+  //   case ('numbers'):
+  //     buttonTwo.onclick = pickNumber
+  //     break
+  //   case ('mousetrap'):
+  //     buttonTwo.onclick = pickThing
+  //     break
+  //   case ('colors'):
+  //     buttonTwo.onclick = pickColor
+  //     break
+  //   case ('thanksgiving food'):
+  //     buttonTwo.onclick = pickFood
+  //     break
+  //   default:
+  //     break
+  // }
 }
